@@ -18,6 +18,9 @@
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "sass": "^1.55.0"
+  },
   "scripts": {
     "dev": "react-scripts start",
     "start": "react-scripts start",
