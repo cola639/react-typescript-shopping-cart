@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import './index.module.scss'
 
 export interface IFooterProps {}
 

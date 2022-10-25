@@ -1,12 +1,18 @@
 import { FC } from 'react'
+import Header from './components/Header'
+import Layout from './layout'
 import Footer from './components/Footer'
-import './assets/scss/style.scss'
+import './styles/index.scss'
+import './App.css'
+import 'antd/dist/antd.css'
 
 export interface IAppProps {}
 
 const App: FC<IAppProps> = () => {
   return (
-    <div className="App">
+    <div className="app">
+      <Header />
+      <Layout />
       <Footer />
     </div>
   )
