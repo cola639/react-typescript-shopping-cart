@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useAppSelector } from '../../hooks/reduxHooks'
 import { Input } from 'antd'
 import './index.scss'
 
@@ -7,13 +8,15 @@ export interface IHeaderProps {}
 const { Search } = Input
 
 const Header: FC<IHeaderProps> = () => {
+  const totalProducts = useAppSelector(state => state.cart.total)
+
+  const totalCount = totalProducts
+    .map(item => item.price * item.quantity)
+    .reduce((prev, current) => prev + current, 0)
+
   const handleSearchInput = () => {
     console.log('🚀TCL: >> handleSearchInput')
   }
-
-  // const handleCartButton = () => {
-  //   console.log('🚀TCL: >> handleCartButton')
-  // }
 
   return (
     <div className="head flex-center ">
@@ -25,8 +28,8 @@ const Header: FC<IHeaderProps> = () => {
       </div>
       <div className="head_count flex-space-around">
         <div className="head_count_content flex-column">
-          <span>Number Items: 10</span>
-          <span>Total Counts: 10</span>
+          <span>Number Items: {totalProducts.length}</span>
+          <span>Total Counts: {totalCount}</span>
         </div>
         <div className="head_count_logo">
           <img

@@ -1,7 +1,9 @@
 import counterReducer from './counterSlice'
+import cartReducer from './cartSlice'
 
 const allReducer = {
-  counter: counterReducer
+  counter: counterReducer,
+  cart: cartReducer
 }
 
 export default allReducer
