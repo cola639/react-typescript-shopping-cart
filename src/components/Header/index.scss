@@ -18,5 +18,20 @@
   .head_count {
     width: 280px;
     height: 100%;
+
+    .head_count_logo {
+      position: relative;
+      .cart_preview {
+        width: 300px;
+        height: 300px;
+        overflow-y: auto;
+        background-color: #fff;
+        display: none;
+        position: absolute;
+      }
+      .active {
+        display: block;
+      }
+    }
   }
 }

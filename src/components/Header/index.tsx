@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { useAppSelector } from '../../hooks/reduxHooks'
 import { Input } from 'antd'
+import CartPreview from '../CartPreview'
 import './index.scss'
 
 export interface IHeaderProps {}
@@ -8,15 +9,18 @@ export interface IHeaderProps {}
 const { Search } = Input
 
 const Header: FC<IHeaderProps> = () => {
+  const [isActive, setIsActive] = useState(false)
   const totalProducts = useAppSelector(state => state.cart.total)
 
   const totalCount = totalProducts
     .map(item => item.price * item.quantity)
     .reduce((prev, current) => prev + current, 0)
 
-  const handleSearchInput = () => {
-    console.log('🚀TCL: >> handleSearchInput')
+  const showPreview = () => {
+    console.log('🚀TCL: >> isActive', isActive)
+    setIsActive(!isActive)
   }
+  const handleSearchInput = () => {}
 
   return (
     <div className="head flex-center ">
@@ -33,9 +37,14 @@ const Header: FC<IHeaderProps> = () => {
         </div>
         <div className="head_count_logo">
           <img
+            onClick={showPreview}
             src="https://res.cloudinary.com/sivadass/image/upload/v1493548928/icons/bag.png"
             alt="count logo"
           />
+
+          <div className={'cart_preview' + (isActive ? ' active' : '')}>
+            <CartPreview />
+          </div>
         </div>
       </div>
     </div>
