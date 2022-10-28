@@ -22,8 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "sass": "^1.55.0",
-    "http-proxy-middleware": "2.0.6"
+    "http-proxy-middleware": "2.0.6",
+    "sass": "^1.55.0"
   },
   "scripts": {
     "dev": "react-scripts start",

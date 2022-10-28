@@ -1,35 +1,46 @@
-import { FC, useState, useEffect, useCallback, useMemo, ReactNode, ReactComponentElement } from 'react'
+import {
+  FC,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+  ReactNode,
+  ReactComponentElement
+} from 'react'
 import Product from '../../components/Product'
+import { getProducts } from '../../api/cart'
 import './index.scss'
 
 export interface IHomeProps {}
 
 export interface IProductList {
-  key: number
+  id: number
   name: string
-  imgUrl: string
+  image: string
   price: number
 }
 
 const Home: FC<IHomeProps> = ({}) => {
-  const productList: IProductList[] = []
+  // const productList: IProductList[] = []
+  const [productList, setProductList] = useState<IProductList[]>()
 
-  for (let i = 0; i < 15; i++) {
-    productList.push({
-      key: i,
-      name: 'Brocolli - 1 Kg',
-      price: 20,
-      imgUrl: 'https://res.cloudinary.com/sivadass/image/upload/v1493620046/dummy-products/broccoli.jpg'
-    })
-  }
-
-  useEffect(() => {}, [])
+  useEffect(() => {
+    getProducts()
+      .then(res => {
+        const { productList } = res
+        setProductList(productList)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(() => {})
+  }, [])
   useCallback(() => {}, [])
   useMemo(() => {}, [])
 
   return (
     <div className=" home">
-      {productList.map((item, index) => (
+      {productList?.map((item, index) => (
         <Product key={index} data={item} />
       ))}
     </div>

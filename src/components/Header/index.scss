@@ -21,10 +21,14 @@
 
     .head_count_logo {
       position: relative;
+      img {
+        cursor: pointer;
+      }
       .cart_preview {
         width: 300px;
         height: 300px;
         overflow-y: auto;
+        box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
         background-color: #fff;
         display: none;
         position: absolute;

@@ -10,7 +10,7 @@ import { RootState, AppThunk } from '../index'
 interface IProductList {
   id: number
   name: string
-  imgUrl: string
+  image: string
   price: number
   quantity: number
 }

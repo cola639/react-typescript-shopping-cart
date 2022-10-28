@@ -4,11 +4,11 @@ import { incrementProduct } from '../../store/slices/cartSlice'
 import './index.scss'
 
 export interface IProductProps {
-  data: { name: string; imgUrl: string; price: number }
+  data: { name: string; image: string; price: number }
 }
 
 const Product: FC<IProductProps> = ({ data }) => {
-  const { name, imgUrl, price } = data
+  const { name, image, price } = data
   const dispatch = useAppDispatch()
 
   const handleAdd = () => {
@@ -19,7 +19,7 @@ const Product: FC<IProductProps> = ({ data }) => {
   return (
     <div className="product flex-column">
       <div className="product_img">
-        <img src={imgUrl} alt="vegetable" />
+        <img src={image} alt="vegetable" />
       </div>
       <div className="product_info">{name}</div>
       <div className="product_price">{price}</div>
