@@ -1,5 +1,8 @@
 import { FC, useState, useEffect, useCallback, useMemo } from 'react'
-import Home from '../pages/home'
+import { Outlet } from 'react-router-dom'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
 import './index.scss'
 
 export interface ILayoutProps {}
@@ -11,7 +14,9 @@ const Layout: FC<ILayoutProps> = ({}) => {
 
   return (
     <div className="container">
-      <Home />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   )
 }

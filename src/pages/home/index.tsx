@@ -7,6 +7,7 @@ import {
   ReactNode,
   ReactComponentElement
 } from 'react'
+
 import Product from '../../components/Product'
 import { getProducts } from '../../api/cart'
 import './index.scss'
@@ -39,7 +40,7 @@ const Home: FC<IHomeProps> = ({}) => {
   useMemo(() => {}, [])
 
   return (
-    <div className=" home">
+    <div className="home">
       {productList?.map((item, index) => (
         <Product key={index} data={item} />
       ))}

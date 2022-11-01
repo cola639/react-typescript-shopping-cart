@@ -42,6 +42,10 @@ const Header: FC<IHeaderProps> = () => {
             alt="count logo"
           />
 
+          <span className="hcl_badge" onClick={showPreview}>
+            {totalProducts.length}
+          </span>
+
           <div className={'cart_preview' + (isActive ? ' active' : '')}>
             <CartPreview />
           </div>

@@ -1,0 +1,10 @@
+.cartPreview {
+  position: relative;
+}
+
+.click_btn {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+}

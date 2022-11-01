@@ -1,12 +1,14 @@
 import request from '../utils/request'
 
 export interface ILoginRequest {
-  email: string
+  name: string
   password: string
 }
 
 export interface ILoginResonse {
   sucessmsg: string
+  user: object
+  token: string
 }
 
 export interface IUserRequest {
@@ -18,8 +20,8 @@ export interface IUserResonse {
   avatar: string
 }
 
-export const login = (): Promise<ILoginResonse> =>
-  request.get<ILoginResonse>('/users/login').then(({ data }) => {
+export const login = (loginPayload: ILoginRequest): Promise<ILoginResonse> =>
+  request.post<ILoginResonse>('/users/login', { ...loginPayload }).then(({ data }) => {
     return data
   })
 

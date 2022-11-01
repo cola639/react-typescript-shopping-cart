@@ -1,21 +1,26 @@
 import { FC, useState, useEffect, useCallback, useMemo } from 'react'
+import { useAppDispatch } from '../../../hooks/reduxHooks'
+import { decreaseProduct } from '../../../store/slices/cartSlice'
 
 import './index.scss'
 
 export interface IItemProps {
-  data: { name: string; image: string; price: number; quantity: number }
+  data: { id: number; name: string; image: string; price: number; quantity: number }
 }
 
 const Item: FC<IItemProps> = ({ data }) => {
-  const { name, image, price, quantity } = data
+  const { name, image, price, quantity, id } = data
+  const dispatch = useAppDispatch()
   console.log('🚀TCL: >> data', data)
   const itemCost = price * quantity
   useEffect(() => {}, [])
   useCallback(() => {}, [])
   useMemo(() => {}, [])
 
-  const handleDelete = () => {
-    console.log('🚀TCL: >> handleDelete >> handleDelete')
+  const handleDelete = (id: number) => {
+    console.log('🚀TCL: >> handleDelete >> id', id)
+    dispatch(decreaseProduct(id))
+    // console.log('🚀TCL: >> handleDelete >> handleDelete')
   }
 
   return (
@@ -27,7 +32,7 @@ const Item: FC<IItemProps> = ({ data }) => {
         <span> TOTAL: {itemCost}</span>
       </div>
 
-      <span className="cart_item_delete" onClick={handleDelete}>
+      <span className="cart_item_delete" onClick={() => handleDelete(id)}>
         X
       </span>
     </div>

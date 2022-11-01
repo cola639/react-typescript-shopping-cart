@@ -41,12 +41,11 @@ export const cartSlice = createSlice({
       const id = action.payload.id
       const cloneTotal: IProductList[] = JSON.parse(JSON.stringify(state.total))
       const isOld = cloneTotal.map(item => item.id).includes(id)
+
       let newTotal
       if (isOld) {
         cloneTotal.forEach((item, index) => {
-          if (item.id === id) {
-            cloneTotal[index]['quantity'] += 1
-          }
+          if (item.id === id) cloneTotal[index]['quantity'] += 1
         })
 
         newTotal = [...cloneTotal]
@@ -55,12 +54,22 @@ export const cartSlice = createSlice({
       }
 
       state.total = newTotal
+    },
+    decreaseProduct: (state, action) => {
+      const id = action.payload
+      const cloneTotal: IProductList[] = JSON.parse(JSON.stringify(state.total))
+
+      cloneTotal.forEach((item, index) => {
+        if (item.id === id) cloneTotal.splice(index, 1)
+      })
+
+      state.total = cloneTotal
     }
   },
 
   extraReducers: builder => {}
 })
 
-export const { incrementProduct } = cartSlice.actions
+export const { incrementProduct, decreaseProduct } = cartSlice.actions
 
 export default cartSlice.reducer

@@ -24,6 +24,19 @@
       img {
         cursor: pointer;
       }
+      .hcl_badge {
+        cursor: pointer;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ef7400;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        left: 20px;
+        top: -5px;
+      }
       .cart_preview {
         width: 300px;
         height: 300px;
