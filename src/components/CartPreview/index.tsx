@@ -19,7 +19,7 @@ const CartPreview: FC<ICartPreviewProps> = ({}) => {
         totalProducts.map((item, index) => <Item key={index} data={item} />)}
 
       {totalProducts.length > 0 && (
-        <button className="click_btn" onClick={() => navigate('/login')}>
+        <button className="click_btn" onClick={() => navigate('/payment')}>
           CLICK TO PAY
         </button>
       )}

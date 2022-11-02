@@ -9,7 +9,7 @@ import {
 } from 'react'
 
 import Product from '../../components/Product'
-import { getProducts } from '../../api/cart'
+import { getProducts } from '../../api/product'
 import './index.scss'
 
 export interface IHomeProps {}

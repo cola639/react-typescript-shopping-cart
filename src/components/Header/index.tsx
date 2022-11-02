@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import { useAppSelector } from '../../hooks/reduxHooks'
+import { useNavigate } from 'react-router-dom'
 import { Input } from 'antd'
 import CartPreview from '../CartPreview'
 import './index.scss'
@@ -9,6 +10,7 @@ export interface IHeaderProps {}
 const { Search } = Input
 
 const Header: FC<IHeaderProps> = () => {
+  const navigate = useNavigate()
   const [isActive, setIsActive] = useState(false)
   const totalProducts = useAppSelector(state => state.cart.total)
 
@@ -24,7 +26,7 @@ const Header: FC<IHeaderProps> = () => {
 
   return (
     <div className="head flex-center ">
-      <div className="head_logo ">
+      <div className="head_logo " onClick={() => navigate('/')}>
         <img src="https://res.cloudinary.com/sivadass/image/upload/v1493547373/dummy-logo/Veggy.png" />
       </div>
       <div className="head_search">

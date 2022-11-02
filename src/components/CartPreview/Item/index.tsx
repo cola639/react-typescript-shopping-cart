@@ -11,7 +11,7 @@ export interface IItemProps {
 const Item: FC<IItemProps> = ({ data }) => {
   const { name, image, price, quantity, id } = data
   const dispatch = useAppDispatch()
-  console.log('🚀TCL: >> data', data)
+
   const itemCost = price * quantity
   useEffect(() => {}, [])
   useCallback(() => {}, [])

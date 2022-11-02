@@ -6,9 +6,10 @@ export interface ILoginRequest {
 }
 
 export interface ILoginResonse {
-  sucessmsg: string
-  user: object
   token: string
+  role: string
+  avatar: string
+  username: string
 }
 
 export interface IUserRequest {
@@ -17,6 +18,7 @@ export interface IUserRequest {
 }
 
 export interface IUserResonse {
+  userName: string
   avatar: string
 }
 
