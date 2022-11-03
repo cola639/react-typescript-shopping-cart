@@ -13,6 +13,7 @@ const Login = withLoading(lazy(() => import('../pages/login')))
 const Payment = withLoading(lazy(() => import('../pages/payment')))
 const Detail = withLoading(lazy(() => import('../pages/detail')))
 
+/* eslint-disable  import/no-anonymous-default-export */
 export default {
   Login,
   Layout,

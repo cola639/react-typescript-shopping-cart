@@ -1,8 +1,8 @@
-import { FC, useState, useEffect, useCallback, useMemo } from 'react'
+import { FC, useEffect, useCallback, useMemo } from 'react'
 
 export interface ILoadingProps {}
 
-const Loading: FC<ILoadingProps> = ({}) => {
+const Loading: FC<ILoadingProps> = () => {
   useEffect(() => {}, [])
   useCallback(() => {}, [])
   useMemo(() => {}, [])
