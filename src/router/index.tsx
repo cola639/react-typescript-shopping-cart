@@ -11,7 +11,7 @@ export interface RouteMetaObject extends RouteObject {
 }
 
 const { Login, Layout, Payment, Home, Detail } = routeList
-const ProtectedPayment = (
+const ProtectedPayment = () => (
   <RequireAuth>
     <Payment />
   </RequireAuth>
@@ -33,7 +33,7 @@ const routes: RouteMetaObject[] = [
       },
       {
         path: '/payment',
-        element: ProtectedPayment
+        element: <ProtectedPayment />
       },
 
       {
